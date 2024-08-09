@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React App</title>
+</head>
+<body>
+  <!-- Elemen ini adalah tempat React akan merender komponen -->
+  <div id="root"></div>
+
+  <!-- Menyertakan React dan React DOM -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- React Script -->
+  <script type="text/babel">
+// Define a React component that renders a list of items
+function ListComponent() {
+    // Array of items to render
+    const items = [
+        { id: 1, name: 'Item 1' },
+        { id: 2, name: 'Item 2' },
+        { id: 3, name: 'Item 3' },
+        { id: 4, name: 'Item 4' }
+    ];
+
+    return (
+        <ul>
+            {items.map(item => (
+                // Each list item needs a unique 'key'
+                <li key={item.id}>{item.name}</li>
+            ))}
+        </ul>
+    );
+}
+
+// Render the component to the DOM
+ReactDOM.render(<ListComponent />, document.getElementById('root'));
+  </script>
+</body>
+</html>

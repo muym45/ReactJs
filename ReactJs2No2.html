@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React App</title>
+</head>
+<body>
+  <!-- Elemen ini adalah tempat React akan merender komponen -->
+  <div id="root"></div>
+
+  <!-- Menyertakan React dan React DOM -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- React Script -->
+  <script type="text/babel">
+    // Komponen fungsi "Welcome" menerima props dan menggunakan nilainya
+function Welcome(props) {
+  // Mengembalikan elemen h1 yang menampilkan teks dengan props.name
+  return <h1>Selamat datang, {props.name}!</h1>;
+}
+
+// Merender komponen "Welcome" dengan props name bernilai "Muim"
+ReactDOM.render(<Welcome name="Muim" />, document.getElementById('root'));
+  </script>
+</body>
+</html>

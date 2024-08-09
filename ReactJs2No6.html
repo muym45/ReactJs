@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React App</title>
+</head>
+<body>
+  <!-- Elemen ini adalah tempat React akan merender komponen -->
+  <div id="root"></div>
+
+  <!-- Menyertakan React dan React DOM -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- React Script -->
+  <script type="text/babel">
+// Import React and useState hook
+const { useState } = React;
+
+// Define a React component that handles form input and displays the result
+function FormComponent() {
+    // State to store the input value
+    const [inputValue, setInputValue] = useState('');
+    const [submittedValue, setSubmittedValue] = useState('');
+
+    // Handle input change event
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value);
+    };
+
+    // Handle form submission
+    const handleSubmit = (event) => {
+        event.preventDefault(); // Prevent the form from reloading the page
+        setSubmittedValue(inputValue); // Set the submitted value to display
+    };
+
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Enter something:
+                    <input type="text" value={inputValue} onChange={handleInputChange} />
+                </label>
+                <button type="submit">Submit</button>
+            </form>
+            {/* Display the submitted value */}
+            {submittedValue && <p>You submitted: {submittedValue}</p>}
+        </div>
+    );
+}
+
+// Render the component to the DOM
+ReactDOM.render(<FormComponent />, document.getElementById('root'));
+
+  </script>
+</body>
+</html>

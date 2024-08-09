@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React App</title>
+</head>
+<body>
+  <!-- Elemen ini adalah tempat React akan merender komponen -->
+  <div id="root"></div>
+
+  <!-- Menyertakan React dan React DOM -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- React Script -->
+  <script type="text/babel">
+    // Mendefinisikan komponen fungsi bernama "Welcome"
+    function Welcome() {
+      // Komponen ini mengembalikan elemen h1 yang berisi teks "Hello, React!"
+      return (
+        <div>
+            <h1>Hello, My Name Jordi!</h1>
+            <p>This is a simple React component rendered with JSX.</p>
+        </div>
+    );
+    }
+
+    // Merender komponen "Welcome" ke dalam elemen dengan id "root"
+    ReactDOM.render(<Welcome />, document.getElementById('root'));
+  </script>
+</body>
+</html>

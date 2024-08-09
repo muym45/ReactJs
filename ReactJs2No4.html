@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React App</title>
+</head>
+<body>
+  <!-- Elemen ini adalah tempat React akan merender komponen -->
+  <div id="root"></div>
+
+  <!-- Menyertakan React dan React DOM -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- React Script -->
+  <script type="text/babel">
+  // Import React and useState hook
+const { useState } = React;
+
+// Define a React component with conditional rendering
+function GreetingComponent() {
+    // State to track if the user is logged in
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    // Conditional rendering using if statement
+    let message;
+    if (isLoggedIn) {
+        message = <h1>Yo Selamat Datang!</h1>;
+    } else {
+        message = <h1>Tolong Masuk</h1>;
+    }
+
+    return (
+        <div>
+            {message}
+            <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+                {isLoggedIn ? 'Keluar' : 'Masuk'}
+            </button>
+        </div>
+    );
+}
+
+// Render the component to the DOM
+ReactDOM.render(<GreetingComponent />, document.getElementById('root'));
+  </script>
+</body>
+</html>
